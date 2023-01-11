@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+    }
+
+    .nav{
+        width:100%;
+        height:50px;
+        background-color: skyblue;
+    }
+
+    .nav li{
+        float: left;
+        list-style: none;
+
+        width: 11.1%;
+    }
+
+    li>a{
+        color:black;
+        text-decoration: none;
+
+        line-height: 50px;
+        text-align: center;
+        display: block;
+    }
+
+    li:hover{
+        background-color: red;
+    }
+
+    .box{
+        width:100%;
+        height: 0;
+        background-color: aqua;
+        /* display:none; */
+        transition: all 0.5s;
+        overflow: hidden;
+        
+    }
+
+    .box>div{
+        text-align: center;
+        width:100%;
+        height:100%;
+
+        display: none;
+    }
+
+
+</style>
+
+<body>
+    
+    <div class="nav">
+        <ul>
+            <li><a href="#">手机</a></li>
+            <li><a href="#">红米</a></li>
+            <li><a href="#">电视</a></li>
+            <li><a href="#">笔记本</a></li>
+            <li><a href="#">平板</a></li>
+            <li><a href="#">家电</a></li>
+            <li><a href="#">路由器</a></li>
+            <li><a href="#">服务</a></li>
+            <li><a href="#">社区</a></li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+
+    <script>
+
+        let lis = document.querySelectorAll('li');
+        let box = document.querySelector('.box');
+
+        for(let i = 0 ;i < lis.length ;i++){
+            lis[i].onmouseover = ()=>{
+                box.setAttribute('style','height:200px;');
+                let divs = document.querySelectorAll('.box>div');
+
+                for(let j = 0;j < divs.length;j++){
+                    divs[j].setAttribute('style','display:none');
+                }
+
+                divs[i].setAttribute('style','display:block;');
+            }
+        }
+
+        lis.forEach((ele,index,lis)=>{
+            box.onmouseout = () =>{
+                box.removeAttribute('style');
+            }
+        })
+
+    </script>
+
+</body>
+</html>

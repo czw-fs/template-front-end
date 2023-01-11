@@ -1,0 +1,10 @@
+/*去掉外边距和内边距*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, legend, input, textarea, button, p, blockquote, th, td{margin: 0;padding: 0;}
+/* 去掉列表样式 去掉小点*/
+li{list-style-type:none;}
+/* 去掉a标签下划线 */
+a{text-decoration: none;}
+/* 文字在图片中间 */
+img{vertical-align:middle;}
+/* body中的内容在中间显示 */
+body{text-align: center;}

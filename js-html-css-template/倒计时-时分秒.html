@@ -1,0 +1,76 @@
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+    }
+    .box{
+        position: relative;
+        width: 190px;
+        height: 66px;
+        background-color: #e83632;
+        margin: 50px auto;
+    }
+    .wrap{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 130px;
+        height: 30px;
+    }
+    .hour, .minute, .second{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        float: left;
+        background-color: #2f3430;
+        line-height: 30px;
+    }
+    .hour, .minute{
+        margin-right: 20px;
+    }
+
+    .wrap>span:not(.second)::after{
+        content: ":";
+        display: block;
+        position: absolute;
+        right: -20px;
+        width: 20px;
+        height: 100%;
+        top: 0;
+        font-size: 18px;
+        text-align: center;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <span class="wrap">
+            <span class="hour"></span>
+            <span class="minute"></span>
+            <span class="second"></span>
+        </span>
+    </div>
+
+    <script>
+        let fun1 = (endTime) => {
+            let now = new Date();
+            let time = endTime - now;
+
+            let h = ~~(time / 1000 / 60 / 60);
+            document.querySelector('.hour').innerHTML =  h < 10 ? '0' + h : h;
+            let m = ~~(time / 1000 / 60 % 60);
+            document.querySelector('.minute').innerHTML = m < 10 ? '0' + m : m;
+            let s = ~~(time / 1000 % 60);
+            document.querySelector('.second').innerHTML = s < 10 ? '0' + s : s;
+        }
+
+        fun1(new Date(2023,1,12,23,50,0));
+
+        setInterval(fun1, 1000, new Date(2023,1,12,23,50,0));
+    </script>
+</body>

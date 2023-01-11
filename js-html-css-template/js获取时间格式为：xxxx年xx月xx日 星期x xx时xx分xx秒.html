@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+// 2.控制台打印当前时间，格式为：xxxx年xx月xx日 星期x xx时xx分xx秒
+let fun2 = () => {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    let date = now.getDate();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+    let second = now.getSeconds();
+    let week = now.getDay();
+
+    if(month < 10){
+        month = '0' + month;
+    }   
+    if(date < 10){
+        date = '0' + date;
+    }
+    if(hour < 10){
+        hour = '0' + hour;
+    }
+    if(minute < 10){
+        minute = '0' + minute;
+    }
+    if(second < 10){
+        second = '0' + second;
+    }
+
+    let arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+    return `${year}年${month}月${date}日 ${arr[week]} ${hour}时${minute}分${second}秒`;
+};
+
+let result = fun2();
+console.log(result);
+    </script>
+</body>
+</html>

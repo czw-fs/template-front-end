@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+
+    li{
+        float: left;
+        margin: 50px 20px;
+        padding-bottom: 5px;
+        list-style: none;
+    }
+
+    .active{
+        color:#ff6700;
+        border-bottom: 2px solid #ff6700;
+    }
+
+    .box{
+        width:263px;
+        height:200px;
+        border: 1px solid red;
+
+        /* 清除浮动对我的影响 */
+        clear:both;
+    }
+
+    .box>div{
+        width:100%;
+        height:100%;
+        display: none;
+    }
+
+    /* 拥有此选择器的节点可以显示 */
+    .box>.show{
+        display: block;
+    }
+</style>
+
+<body id="body">
+    
+
+    <div>
+        <ul>
+            <li class="active">扫地机</li>
+            <li>空净</li>
+            <li>清洁</li>
+            <li>风扇</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <div class="show">扫地机</div>
+        <div>空净</div>
+        <div>清洁</div>
+        <div>风扇</div>
+    </div>
+
+    <script>
+        let lis = document.querySelectorAll('li');
+        let divs = document.querySelectorAll('.box>div');
+
+        for(let i = 0 ; i< lis.length;i++){
+
+                lis[i].onmouseover = ()=>{
+                    for(let j = 0;j < lis.length ;j++){
+                        if(i == j){
+                            lis[i].className = 'active';
+                            divs[i].className = 'show';
+                        }else{
+                            lis[j].className = '';
+                            divs[j].className = '';
+                        }
+                    }
+
+                    
+            }
+        }
+    </script>
+</body>
+</html>

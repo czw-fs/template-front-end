@@ -1,0 +1,71 @@
+<style>
+    .box {
+        width: 400px;
+        height: 500px;
+        border: 1px solid #ff6700;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+    .year,
+    .week,
+    .time {
+        height: 100px;
+        line-height: 100px;
+        font-size: 40px;
+    }
+
+    .date {
+        height: 200px;
+        background-color: orange;
+        line-height: 200px;
+        font-size: 90px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="year">2022年 4月</div>
+        <div class="date">13日</div>
+        <div class="week">星期三</div>
+        <div class="time">15时20分30秒</div>
+    </div>
+
+    <script>
+        let fun1 = () => {
+            let now = new Date();
+            let year = now.getFullYear();
+            let month = now.getMonth() + 1;
+            let date = now.getDate();
+            let hour = now.getHours();
+            let minute = now.getMinutes();
+            let second = now.getSeconds();
+            let week = now.getDay();
+
+            if(month < 10){
+                month = '0' + month;
+            }
+            if(date < 10){
+                date = '0' + date;
+            }
+            if(hour < 10){
+                hour = '0' + hour;
+            }
+            if(minute < 10){
+                minute = '0' + minute;
+            }
+            if(second < 10){
+                second = '0' + second;
+            }
+
+            document.querySelector('.year').innerHTML = year + '年 ' + month + '月';
+            document.querySelector('.date').innerHTML = `${date}日`;
+            document.querySelector('.week').innerHTML = '星期' + '日一二三四五六'[week];
+            document.querySelector('.time').innerHTML = `${hour}时${minute}分${second}秒`;
+        };
+
+        fun1();
+
+        let timer = setInterval(fun1, 1000);
+    </script>
+</body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button>全选</button>
+    <button>全不选</button>
+    <button>反选</button>
+
+    <br>
+
+    <input type="checkbox" name="a" id="">a
+    <input type="checkbox" name="b" id="">b
+    <input type="checkbox" name="c" id="">c
+    <input type="checkbox" name="d" id="">d
+    <input type="checkbox" name="e" id="">e
+    <input type="checkbox" name="f" id="">f
+
+    <script>
+
+        let btns = document.querySelectorAll('button');
+
+        btns[0].onclick = ()=>{
+            let inputs = document.querySelectorAll('input');
+            inputs.forEach((ele,index,inputs)=>{
+                ele.checked = true;
+            })
+        }
+
+        btns[1].onclick = () => {
+            let inputs = document.querySelectorAll('input');
+            inputs.forEach((ele,index,inputs)=>{
+                ele.checked = false;
+            })
+        }
+
+        btns[2].onclick = () => {
+            let inputs = document.querySelectorAll('input');
+            inputs.forEach((ele,index,inputs)=>{
+                ele.checked = !ele.checked;
+            });
+        }
+    </script>
+</body>
+</html>

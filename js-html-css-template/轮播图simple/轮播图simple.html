@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        .banner{
+            position:relative;
+
+            height:460px;
+            width: 1226px;
+            background-color: red;
+            margin:50px auto;
+        }
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+
+        .prev,.next{
+            position:absolute;
+            width:41px;
+            height:69px;
+            background-color: aqua;
+        }
+
+        .prev{
+            top:50%;
+            transform: translateY(-50%);
+        }
+
+        .next{
+            top:50%;
+            transform: translateY(-50%);
+            right:0;
+        }
+    </style>
+
+</head>
+<body>
+
+
+   
+    <div class="banner">
+        <a href="#">
+            <img src="./images/1.jpg" alt="图片">
+        </a>
+
+        <div class="prev"></div>
+        <div class="next"></div>
+    </div>
+
+    <script>
+        
+        let next = document.querySelector('.next');
+        let arr = ['1.jpg','2.jpg','3.jpg','4.jpg']
+        let count = 0;
+        next.onclick = ()=>{
+            count++;
+            if(count > arr.length - 1){
+                count = 0;
+            }
+            let img = document.querySelector('img');
+            img.src = './images/' + arr[count];
+
+            
+        };
+
+        let prev = document.querySelector('.prev')
+        prev.onclick = ()=>{
+            count--;
+            if(count < 0){
+                count = 3;
+            }
+            let img = document.querySelector('img')
+            img.src = './images/' + arr[count];
+
+            
+        };
+
+
+    </script>
+
+</body>
+</html>

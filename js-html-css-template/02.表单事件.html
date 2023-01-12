@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        表单事件：
+        submit：表单提交事件，在表单提交的时候会触发，
+        reset：表单重置事件，在表单重置的时候会触发
+
+     -->
+    <form action="./01.模糊查询.html">
+        <input type="text">
+        <input type="submit">
+        <input type="reset">
+    </form>
+
+    <script>
+
+        let form = document.querySelector('form');
+
+        // 给表单绑定表单提交事件
+        form.onsubmit = () => {
+            console.log('表单提交了！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！');
+            return false; // true，表示表单正常提交；false 表单就不提交了
+        };
+
+        // 表单重置事件
+        form.onreset = () => {
+            console.log('表单要重置了！');
+            return false; // true，表示正常重置，false 表示不重置了！！！
+        };
+
+    </script>
+</body>
+</html>

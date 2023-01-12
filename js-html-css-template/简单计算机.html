@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width:240px;
+            height:350px;
+            margin: 50px auto;
+            border: 1px solid #ff6700;
+            text-align: center;
+        }
+        .box input{
+            width:180px;
+            height:30px;
+            margin:20px 0;
+            border: 1px solid #ff6700;
+            /* 去掉浏览器默认样式 */
+            outline: none;
+
+            padding:0 5px;
+        }
+        button{
+            width:45px;
+            height:45px;
+            background-color: orange;
+            border-radius: 50%;
+            /* 去掉按钮默认边框 */
+            border: none;
+            margin-top: 20px;
+
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="box">
+        <input type="text" name="" id="">
+        <br>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>_</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+        <button>C</button>
+        <button>0</button>
+        <button>=</button>
+        <button>/</button>
+    </div>
+
+    <script>
+        let btns = document.querySelectorAll('button');
+        let input = document.querySelector('input');
+
+        //鼠标移入按钮改变背景颜色
+        for(let i = 0;i < btns.length;i++){
+            btns[i].onmouseover = function(){
+
+                for(let j=0;j < btns.length;j++){
+                    btns[j].style.backgroundColor = 'orange';
+                }
+
+                this.style.backgroundColor = 'red';
+            }
+
+            btns[i].onclick = function(){
+                if(btns[i].innerHTML == 'C'){
+                    input.value = '';
+                }else if(btns[i].innerHTML == '='){
+                    //将字符串转化为js代码
+                    input.value = eval(input.value);
+                }else{
+                    input.value += btns[i].innerHTML;
+                }
+            }
+        }
+
+        
+        
+    </script>
+</body>
+</html>

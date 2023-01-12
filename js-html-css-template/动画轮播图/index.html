@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <style>
+        .box {
+            width: 1180px;
+            height: 516px;
+            /* background-color: skyblue; */
+            margin: 50px auto;
+        }
+
+        .fun_box {
+            position: relative;
+            width: 1060px;
+            height: 516px;
+            /* background-color: red; */
+            float: right;
+        }
+
+        .fun_con {
+            width: 1060px;
+            height: 536px;
+            /* background-color: orange; */
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .fun_con>ul {
+            width: 2300px;
+            height: 516px;
+            background-color: antiquewhite;
+
+            position: absolute;
+            top: 20px;
+            left: 0;
+
+            transition: 0.5s all;
+        }
+
+        .fun_con>ul>li {
+            width: 220px;
+            height: 516px;
+
+            float: left;
+            margin-right: 10px;
+
+            transition: 0.4s all;
+        }
+
+        .fun_con>ul>li:hover {
+            transform: translateY(-20px);
+        }
+
+        .left,
+        .right {
+            position: absolute;
+            top: 50%;
+
+            display: block;
+            width: 70px;
+            height: 70px;
+            border: 1px solid #c2a060;
+            line-height: 70px;
+            background-color: #fff;
+        }
+
+        .left {
+            left: 0;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .right {
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <body>
+        <div class="box">
+            <div class="fun_box">
+                <div class="fun_con">
+                    <ul>
+                        <li><a href="#"><img src="./images/1.gif" alt=""></a></li>
+                        <li><a href="#"><img src="./images/2.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="./images/3.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="./images/4.jpg" alt=""></a></li>
+                        <li><a href="#"><img src="./images/5.gif" alt=""></a></li>
+                        <li><a href="#"><img src="./images/6.png" alt=""></a></li>
+                        <li><a href="#"><img src="./images/7.png" alt=""></a></li>
+                        <li><a href="#"><img src="./images/8.png" alt=""></a></li>
+                        <li><a href="#"><img src="./images/9.png" alt=""></a></li>
+                        <li><a href="#"><img src="./images/10.png" alt=""></a></li>
+                    </ul>
+                </div>
+                <a href="#" class="left">
+                    <i></i> 
+                </a>
+                <a href="#" class="right">
+                    <i></i>
+                </a>
+            </div>
+        </div>
+    </body>
+    </div>
+
+    <script>
+        let leftBtn = document.querySelector('.left');
+        let rightBtn = document.querySelector('.right');
+        // 获取ul元素
+        let ul = document.querySelector('.fun_con ul');
+        // 获取ul元素的 left 值
+        let left = getComputedStyle(ul).left;
+        left = parseInt(left);
+
+        // 给右箭头绑定点击事件，每点击一次 ul 向左移动 230px
+        rightBtn.onclick = function () {
+            left -= 230;
+
+            if (left <= -1380) {
+                left = -1380;
+                rightBtn.style.display = 'none';
+            }
+
+            if (left <= -230) {
+                leftBtn.style.display = 'block';
+            }
+
+            ul.style.left = left + 'px';
+        };
+
+        leftBtn.onclick = ()=>{
+            left +=230;
+
+            if(left >= 0){
+                left = 0;
+                leftBtn.style.display = 'none';
+            }
+
+            if(left >= -1380){
+                rightBtn.style.display = 'block';
+            }
+            
+            ul.style.left = left + 'px';
+        };
+    </script>
+
+</body>
+
+</html>

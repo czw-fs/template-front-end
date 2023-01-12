@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    div{
+        width:300px;
+        height:300px;
+        background-color: yellow;
+ 
+        position:fixed;
+        right:0;
+        bottom: -300px;
+        transition: 1s all;
+    }
+
+    div>span{
+        width:30px;
+        height:30px;
+        background-color: skyblue;
+
+        position:absolute;
+        top:0;
+        right:0;
+
+        line-height: 30px;
+        text-align: center; 
+
+        cursor: pointer;
+
+        
+    }
+    </style>
+
+</head>
+<body>
+    <div>
+        <span>X</span>
+    </div>
+
+    <script>
+        let div = document.querySelector('div');
+
+        let timer = setInterval(function(){
+            /* let bottom = getComputedStyle(div).bottom;
+            bottom = parseInt(bottom);
+            bottom +=10; */
+
+            // if(bottom >= 0){
+            //     clearInterval(timer);
+            // }
+
+            div.style.bottom = 0 + 'px';
+            clearInterval(timer);
+        },50)
+    </script>
+
+</body>
+</html>

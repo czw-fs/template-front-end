@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 让html和body充满整个浏览器窗口 */
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background-color: #0E1013;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.body.onclick = (e) => {
+            // 创建图片标签
+            let img = document.createElement('img');
+            // 将图片添加到body中
+            document.body.appendChild(img);
+
+            img.src = './images/img2.gif';
+
+            // [100, 300]
+            let num = ~~(Math.random()*(300-100+1)+100);
+            img.style.width = num + 'px';
+            img.style.height = num + 'px';
+
+            // 设置图片定位
+            img.style.position = 'fixed';
+
+            img.style.top = e.clientY - num / 2 + 'px';
+            img.style.left = e.clientX - num / 2 + 'px';
+        };
+    </script>
+</body>
+</html>
